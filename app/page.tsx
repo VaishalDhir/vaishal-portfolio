@@ -1,18 +1,3 @@
-import { motion } from "framer-motion";
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  visible: (i = 0) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      delay: i * 0.08,
-      ease: [0.22, 1, 0.36, 1],
-    },
-  }),
-};
-
 export default function PersonalWebsite() {
   const experience = [
     {
@@ -145,7 +130,7 @@ export default function PersonalWebsite() {
 
       <section className="mx-auto max-w-6xl px-6 pb-16 pt-14 md:pb-24 md:pt-20">
         <div className="grid gap-10 md:grid-cols-[1.25fr_0.9fr] md:items-center">
-          <motion.div initial="hidden" animate="visible" variants={fadeUp}>
+          <div className="transition duration-500">
             <div className="inline-flex rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-1.5 text-sm text-cyan-200 shadow-lg shadow-cyan-500/10">
               Infrastructure Support • Cluster Operations • Technical Reliability
             </div>
@@ -159,37 +144,33 @@ export default function PersonalWebsite() {
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4">
-              <a href="#contact" className="rounded-2xl bg-white px-5 py-3 font-medium text-slate-950 transition hover:scale-[1.02]">
+              <a href="#contact" className="rounded-2xl bg-white px-5 py-3 font-medium text-slate-950 transition duration-300 hover:scale-[1.02] hover:shadow-lg">
                 Contact Me
               </a>
-              <a href="#projects" className="rounded-2xl border border-white/15 bg-white/5 px-5 py-3 font-medium text-white transition hover:bg-white/10">
+              <a href="#projects" className="rounded-2xl border border-white/15 bg-white/5 px-5 py-3 font-medium text-white transition duration-300 hover:bg-white/10">
                 View Projects
               </a>
-              <a href="/resume.pdf" target="_blank" className="rounded-2xl border border-cyan-400/20 bg-cyan-400/10 px-5 py-3 font-medium text-cyan-100 transition hover:bg-cyan-400/15">
+              <a href="/resume.pdf" target="_blank" className="rounded-2xl border border-cyan-400/20 bg-cyan-400/10 px-5 py-3 font-medium text-cyan-100 transition duration-300 hover:bg-cyan-400/15">
                 Download Resume
               </a>
             </div>
 
             <div className="mt-10 grid gap-4 sm:grid-cols-3">
-              {stats.map((item, index) => (
-                <motion.div
+              {stats.map((item) => (
+                <div
                   key={item.label}
-                  custom={index + 1}
-                  initial="hidden"
-                  animate="visible"
-                  variants={fadeUp}
-                  className="rounded-2xl border border-white/10 bg-white/5 p-4 shadow-xl shadow-black/10 backdrop-blur"
+                  className="rounded-2xl border border-white/10 bg-white/5 p-4 shadow-xl shadow-black/10 backdrop-blur transition duration-300 hover:-translate-y-1 hover:bg-white/10"
                 >
                   <p className="text-sm text-slate-400">{item.label}</p>
                   <p className="mt-2 text-lg font-semibold text-white">{item.value}</p>
-                </motion.div>
+                </div>
               ))}
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div initial="hidden" animate="visible" custom={2} variants={fadeUp} className="relative">
+          <div className="relative transition duration-500">
             <div className="absolute -inset-4 rounded-[2.5rem] bg-gradient-to-br from-cyan-400/15 via-blue-500/10 to-purple-500/10 blur-2xl" />
-            <div className="relative rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur-xl">
+            <div className="relative rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur-xl transition duration-300 hover:border-cyan-400/20">
               <div className="rounded-[1.5rem] border border-white/10 bg-slate-900/80 p-6">
                 <div className="flex items-center gap-4">
                   <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-300 to-blue-500 text-xl font-bold text-slate-950">
@@ -202,16 +183,16 @@ export default function PersonalWebsite() {
                 </div>
 
                 <div className="mt-6 grid gap-3">
-                  <a href="mailto:vaishaldhir4@gmail.com" className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-slate-200 transition hover:bg-white/10">
+                  <a href="mailto:vaishaldhir4@gmail.com" className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-slate-200 transition duration-300 hover:bg-white/10">
                     vaishaldhir4@gmail.com
                   </a>
                   <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-slate-200">
                     438-979-0349
                   </div>
-                  <a href="https://www.linkedin.com/in/vaishal-dhir-049323113" className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-slate-200 transition hover:bg-white/10">
+                  <a href="https://www.linkedin.com/in/vaishal-dhir-049323113" className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-slate-200 transition duration-300 hover:bg-white/10">
                     LinkedIn Profile
                   </a>
-                  <a href="https://github.com/" className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-slate-200 transition hover:bg-white/10">
+                  <a href="https://github.com/" className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-slate-200 transition duration-300 hover:bg-white/10">
                     GitHub
                   </a>
                 </div>
@@ -222,19 +203,19 @@ export default function PersonalWebsite() {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       <section id="about" className="mx-auto max-w-6xl px-6 py-20">
         <div className="grid gap-10 md:grid-cols-[0.9fr_1.1fr]">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.25 }} variants={fadeUp}>
+          <div>
             <p className="text-sm uppercase tracking-[0.3em] text-slate-400">About</p>
             <h3 className="mt-3 text-3xl font-semibold text-white md:text-4xl">
               Calm execution in high-pressure technical environments.
             </h3>
-          </motion.div>
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.25 }} custom={1} variants={fadeUp} className="space-y-5 text-lg leading-8 text-slate-300">
+          </div>
+          <div className="space-y-5 text-lg leading-8 text-slate-300">
             <p>
               I’m a Data Center Technician with experience supporting mission-critical environments, diagnosing issues,
               escalating incidents, and maintaining operational readiness across compute infrastructure.
@@ -243,69 +224,54 @@ export default function PersonalWebsite() {
               I work best in roles that value reliability, attention to detail, fast learning, and strong ownership. I bring
               a practical mindset to systems, operations, and technical support.
             </p>
-          </motion.div>
+          </div>
         </div>
 
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} className="mt-10 flex flex-wrap gap-3">
-          {skills.map((skill, index) => (
-            <motion.span
+        <div className="mt-10 flex flex-wrap gap-3">
+          {skills.map((skill) => (
+            <span
               key={skill}
-              custom={index * 0.3}
-              variants={fadeUp}
-              className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-200 backdrop-blur"
+              className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-200 backdrop-blur transition duration-300 hover:bg-white/10"
             >
               {skill}
-            </motion.span>
+            </span>
           ))}
-        </motion.div>
+        </div>
       </section>
 
       <section className="mx-auto max-w-6xl px-6 py-6">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={fadeUp}
-          className="rounded-[1.75rem] border border-white/10 bg-white/5 p-6 shadow-xl shadow-black/10 backdrop-blur md:p-8"
-        >
+        <div className="rounded-[1.75rem] border border-white/10 bg-white/5 p-6 shadow-xl shadow-black/10 backdrop-blur transition duration-300 hover:bg-white/[0.07] md:p-8">
           <p className="text-sm uppercase tracking-[0.3em] text-slate-400">Why Recruiters Reach Out</p>
           <h3 className="mt-3 text-3xl font-semibold text-white">Signal over noise</h3>
           <div className="mt-6 grid gap-3 md:grid-cols-2">
-            {recruiterHighlights.map((item, index) => (
-              <motion.div
+            {recruiterHighlights.map((item) => (
+              <div
                 key={item}
-                custom={index}
-                variants={fadeUp}
-                className="rounded-2xl border border-white/10 bg-slate-900/70 px-4 py-4 text-slate-300"
+                className="rounded-2xl border border-white/10 bg-slate-900/70 px-4 py-4 text-slate-300 transition duration-300 hover:border-cyan-400/20 hover:bg-slate-900"
               >
                 {item}
-              </motion.div>
+              </div>
             ))}
           </div>
-        </motion.div>
+        </div>
       </section>
 
       <section id="experience" className="mx-auto max-w-6xl px-6 py-20">
         <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={fadeUp}>
+          <div>
             <p className="text-sm uppercase tracking-[0.3em] text-slate-400">Experience</p>
             <h3 className="mt-3 text-3xl font-semibold text-white md:text-4xl">Professional background</h3>
-          </motion.div>
-          <motion.p initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} custom={1} variants={fadeUp} className="max-w-xl text-slate-400">
+          </div>
+          <p className="max-w-xl text-slate-400">
             Roles that built technical judgment, operational discipline, and the ability to stay effective under pressure.
-          </motion.p>
+          </p>
         </div>
 
         <div className="mt-10 grid gap-6">
-          {experience.map((item, index) => (
-            <motion.div
+          {experience.map((item) => (
+            <div
               key={item.role}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.15 }}
-              custom={index}
-              variants={fadeUp}
-              className="rounded-[1.75rem] border border-white/10 bg-white/5 p-6 shadow-xl shadow-black/10 backdrop-blur md:p-8"
+              className="rounded-[1.75rem] border border-white/10 bg-white/5 p-6 shadow-xl shadow-black/10 backdrop-blur transition duration-300 hover:-translate-y-1 hover:bg-white/10 md:p-8"
             >
               <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
                 <div>
@@ -322,34 +288,29 @@ export default function PersonalWebsite() {
                   </div>
                 ))}
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </section>
 
       <section id="projects" className="mx-auto max-w-6xl px-6 py-20">
         <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={fadeUp}>
+          <div>
             <p className="text-sm uppercase tracking-[0.3em] text-slate-400">Projects</p>
             <h3 className="mt-3 text-3xl font-semibold text-white md:text-4xl">Work that shows technical range</h3>
-          </motion.div>
-          <motion.p initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} custom={1} variants={fadeUp} className="max-w-xl text-slate-400">
+          </div>
+          <p className="max-w-xl text-slate-400">
             These projects highlight implementation skills, system thinking, and the ability to build practical solutions.
-          </motion.p>
+          </p>
         </div>
 
         <div className="mt-10 grid gap-6 lg:grid-cols-3">
-          {projects.map((project, index) => (
-            <motion.div
+          {projects.map((project) => (
+            <div
               key={project.title}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
-              custom={index}
-              variants={fadeUp}
-              className="group rounded-[1.75rem] border border-white/10 bg-white/5 p-6 shadow-xl shadow-black/10 transition hover:-translate-y-1 hover:bg-white/10"
+              className="group rounded-[1.75rem] border border-white/10 bg-white/5 p-6 shadow-xl shadow-black/10 transition duration-300 hover:-translate-y-1 hover:bg-white/10"
             >
-              <div className="mb-6 rounded-[1.25rem] border border-white/10 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-5">
+              <div className="mb-6 rounded-[1.25rem] border border-white/10 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-5 transition duration-300 group-hover:border-cyan-400/20">
                 <p className="text-sm uppercase tracking-[0.2em] text-cyan-300">{project.subtitle}</p>
                 <h4 className="mt-4 text-2xl font-semibold text-white">{project.title}</h4>
               </div>
@@ -361,14 +322,14 @@ export default function PersonalWebsite() {
                   </div>
                 ))}
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </section>
 
       <section className="mx-auto max-w-6xl px-6 py-20">
         <div className="grid gap-6 md:grid-cols-[1fr_1fr]">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={fadeUp} className="rounded-[1.75rem] border border-white/10 bg-white/5 p-6 shadow-xl shadow-black/10 backdrop-blur md:p-8">
+          <div className="rounded-[1.75rem] border border-white/10 bg-white/5 p-6 shadow-xl shadow-black/10 backdrop-blur transition duration-300 hover:bg-white/10 md:p-8">
             <p className="text-sm uppercase tracking-[0.3em] text-slate-400">Certifications</p>
             <h3 className="mt-3 text-3xl font-semibold text-white">Continued learning</h3>
             <div className="mt-6 grid gap-3">
@@ -378,9 +339,9 @@ export default function PersonalWebsite() {
                 </div>
               ))}
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} custom={1} variants={fadeUp} className="rounded-[1.75rem] border border-white/10 bg-white/5 p-6 shadow-xl shadow-black/10 backdrop-blur md:p-8">
+          <div className="rounded-[1.75rem] border border-white/10 bg-white/5 p-6 shadow-xl shadow-black/10 backdrop-blur transition duration-300 hover:bg-white/10 md:p-8">
             <p className="text-sm uppercase tracking-[0.3em] text-slate-400">Education</p>
             <h3 className="mt-3 text-3xl font-semibold text-white">Academic background</h3>
             <div className="mt-6 space-y-4 text-slate-300">
@@ -393,12 +354,12 @@ export default function PersonalWebsite() {
                 <p className="text-slate-400">Electronics and Communications • Punjab, India</p>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       <section id="contact" className="mx-auto max-w-6xl px-6 pb-24 pt-10">
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={fadeUp} className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-white/10 to-white/5 p-8 shadow-2xl shadow-cyan-500/5 md:p-12">
+        <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-white/10 to-white/5 p-8 shadow-2xl shadow-cyan-500/5 md:p-12">
           <div className="absolute right-0 top-0 h-40 w-40 rounded-full bg-cyan-400/10 blur-3xl" />
           <div className="relative">
             <p className="text-sm uppercase tracking-[0.3em] text-slate-400">Contact</p>
@@ -408,18 +369,18 @@ export default function PersonalWebsite() {
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4">
-              <a href="mailto:vaishaldhir4@gmail.com" className="rounded-2xl bg-white px-5 py-3 font-medium text-slate-950">
+              <a href="mailto:vaishaldhir4@gmail.com" className="rounded-2xl bg-white px-5 py-3 font-medium text-slate-950 transition duration-300 hover:scale-[1.02]">
                 Email Me
               </a>
-              <a href="https://www.linkedin.com/in/vaishal-dhir-049323113" className="rounded-2xl border border-white/15 px-5 py-3 font-medium text-white">
+              <a href="https://www.linkedin.com/in/vaishal-dhir-049323113" className="rounded-2xl border border-white/15 px-5 py-3 font-medium text-white transition duration-300 hover:bg-white/10">
                 LinkedIn
               </a>
-              <a href="https://github.com/" className="rounded-2xl border border-white/15 px-5 py-3 font-medium text-white">
+              <a href="https://github.com/" className="rounded-2xl border border-white/15 px-5 py-3 font-medium text-white transition duration-300 hover:bg-white/10">
                 GitHub
               </a>
             </div>
           </div>
-        </motion.div>
+        </div>
       </section>
     </div>
   );

@@ -1,36 +1,55 @@
+import { motion } from "framer-motion";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: (i = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      delay: i * 0.08,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  }),
+};
+
 export default function PersonalWebsite() {
   const experience = [
     {
       role: "Data Center Technician",
       company: "IREN",
       period: "January 2026 – Present",
+      summary:
+        "Support mission-critical GPU and compute infrastructure by monitoring cluster health, triaging faults, and helping maintain stable high-availability operations.",
       points: [
-        "Monitor GPU and compute clusters using UFM and BMC tools to assess node health, fabric status, and interconnect performance.",
-        "Perform smart-hands operations including power cycles, BIOS checks, thermal inspections, and network path validation across rack environments.",
-        "Support node provisioning by validating BMC access, IP configurations, out-of-band connectivity, and cluster join readiness.",
-        "Collect diagnostic logs and TSR reports through iDRAC and BMC interfaces to support deeper root-cause analysis.",
+        "Monitor GPU and compute clusters using UFM and BMC tooling to identify degraded nodes, connectivity issues, and performance-impacting faults.",
+        "Perform smart-hands tasks including power cycles, BIOS checks, thermal inspections, cable verification, and network path validation across rack environments.",
+        "Support provisioning workflows by validating BMC access, IP configuration, out-of-band connectivity, and node readiness before cluster integration.",
+        "Collect iDRAC and BMC diagnostic logs, document findings clearly, and escalate with actionable details to speed root-cause analysis.",
       ],
     },
     {
       role: "Assistant Manager",
       company: "7-Eleven Inc.",
       period: "November 2022 – December 2025",
+      summary:
+        "Led operations in a high-volume environment, strengthening team performance, workflow discipline, and customer-facing problem solving.",
       points: [
-        "Led daily operations, workflow efficiency, and compliance with corporate standards in a fast-paced environment.",
-        "Improved team performance and retention through structured coaching, training, and performance feedback.",
-        "Contributed to an 8.5% year-over-year sales increase through stronger merchandising and promotional execution.",
-        "Managed staffing, vendor coordination, store operations, and customer issue resolution with a service-first mindset.",
+        "Improved daily execution by managing staffing, task prioritization, compliance, and issue resolution in a fast-paced retail setting.",
+        "Helped increase year-over-year sales by 8.5% through stronger merchandising, better operational consistency, and promotional execution.",
+        "Improved employee retention through structured coaching, practical training, and ongoing feedback.",
       ],
     },
     {
       role: "Web Developer",
       company: "Logixtree Network",
       period: "July 2018 – January 2020",
+      summary:
+        "Built and maintained responsive websites, contributing to better user experience, reliability, and front-end quality.",
       points: [
-        "Designed and maintained responsive websites and application interfaces using modern front-end practices.",
-        "Improved website performance, functionality, and cross-browser compatibility through testing and optimization.",
-        "Integrated APIs and third-party tools to enhance automation and user experience.",
-        "Maintained version control workflows and collaborated with designers and clients on interface decisions.",
+        "Designed and maintained responsive web interfaces using modern front-end practices and clean implementation patterns.",
+        "Improved performance, browser compatibility, and user experience through debugging, testing, and iterative refinements.",
+        "Integrated APIs and third-party services to improve automation and product functionality.",
       ],
     },
   ];
@@ -50,18 +69,46 @@ export default function PersonalWebsite() {
     "AWS Basics",
   ];
 
+  const recruiterHighlights = [
+    "Mission-critical 24/7 operations experience",
+    "Strong troubleshooting and escalation discipline",
+    "Hands-on infrastructure, hardware, and networking exposure",
+    "Clear documentation and cross-team communication",
+  ];
+
   const projects = [
     {
-      title: "Smart Mirror",
-      description:
-        "Built an interactive smart mirror using Python and Raspberry Pi to display live news, weather, time, and date through API integrations and modular widgets.",
-      tag: "Python • Raspberry Pi • APIs",
+      title: "Smart Mirror Platform",
+      subtitle: "Python · Raspberry Pi · APIs · Linux",
+      impact:
+        "Built a hardware-software system that pulled real-time news, weather, and time data into a clean interactive display for continuous use.",
+      bullets: [
+        "Integrated live APIs and modular widgets to present dynamic information with a smooth user interface.",
+        "Configured device-side components and networking for reliable operation on low-power hardware.",
+        "Optimized processes and refresh behavior to keep the experience stable and responsive.",
+      ],
     },
     {
       title: "Apartment Finder App",
-      description:
-        "Developed a mobile application for apartment search with custom filters, geolocation, real-time listings, cloud database integration, and responsive UI design.",
-      tag: "Mobile App • Cloud DB • Real-Time APIs",
+      subtitle: "Mobile Development · Cloud Database · Geolocation APIs",
+      impact:
+        "Designed a search experience for apartment discovery using filters, real-time listings, and map-based location features.",
+      bullets: [
+        "Implemented geolocation, live data retrieval, and cloud-backed property storage.",
+        "Improved usability through responsive layout, intuitive filtering, and better navigation flow.",
+        "Focused on efficient network calls and caching to improve performance across varied mobile conditions.",
+      ],
+    },
+    {
+      title: "Operational Documentation Mindset",
+      subtitle: "Incident Notes · Escalation Quality · Technical Clarity",
+      impact:
+        "Applied a systems-focused approach to documentation by capturing technical observations, status updates, and escalation details in a way that improves team response speed.",
+      bullets: [
+        "Turned diagnostics into clear written context for engineering and support teams.",
+        "Prioritized traceability, status accuracy, and handoff quality in operational workflows.",
+        "Strengthened collaboration by reducing ambiguity during incident response and follow-up.",
+      ],
     },
   ];
 
@@ -77,10 +124,11 @@ export default function PersonalWebsite() {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100">
-      <div className="fixed inset-0 -z-10 bg-[radial-gradient(circle_at_20%_20%,rgba(34,211,238,0.14),transparent_22%),radial-gradient(circle_at_80%_0%,rgba(59,130,246,0.12),transparent_25%),radial-gradient(circle_at_50%_80%,rgba(168,85,247,0.08),transparent_25%)]" />
+    <div className="min-h-screen bg-slate-950 text-slate-100 selection:bg-cyan-300/20 selection:text-white">
+      <div className="fixed inset-0 -z-10 bg-[radial-gradient(circle_at_20%_15%,rgba(34,211,238,0.12),transparent_22%),radial-gradient(circle_at_80%_0%,rgba(59,130,246,0.10),transparent_28%),radial-gradient(circle_at_50%_80%,rgba(168,85,247,0.06),transparent_24%)]" />
+      <div className="fixed inset-0 -z-10 bg-[linear-gradient(to_bottom,rgba(2,6,23,0.2),rgba(2,6,23,0.92))]" />
 
-      <header className="sticky top-0 z-30 border-b border-white/10 bg-slate-950/75 backdrop-blur-xl">
+      <header className="sticky top-0 z-30 border-b border-white/10 bg-slate-950/70 backdrop-blur-xl">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <div>
             <p className="text-xs uppercase tracking-[0.35em] text-cyan-300">Vaishal Dhir</p>
@@ -96,48 +144,50 @@ export default function PersonalWebsite() {
       </header>
 
       <section className="mx-auto max-w-6xl px-6 pb-16 pt-14 md:pb-24 md:pt-20">
-        <div className="grid gap-10 md:grid-cols-[1.3fr_0.9fr] md:items-center">
-          <div>
-            <p className="inline-flex rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-1.5 text-sm text-cyan-200 shadow-lg shadow-cyan-500/10">
+        <div className="grid gap-10 md:grid-cols-[1.25fr_0.9fr] md:items-center">
+          <motion.div initial="hidden" animate="visible" variants={fadeUp}>
+            <div className="inline-flex rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-1.5 text-sm text-cyan-200 shadow-lg shadow-cyan-500/10">
               Infrastructure Support • Cluster Operations • Technical Reliability
-            </p>
-            <h1 className="mt-6 max-w-4xl text-5xl font-semibold tracking-tight text-white md:text-7xl md:leading-[1.05]">
-              Premium portfolio for a modern technical career.
+            </div>
+            <h1 className="mt-6 max-w-4xl text-5xl font-semibold tracking-tight text-white md:text-7xl md:leading-[1.02]">
+              Keeping critical infrastructure stable, visible, and running.
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300 md:text-xl">
-              I support mission-critical infrastructure with a focus on monitoring, diagnostics, smart-hands execution,
-              documentation, and operational stability. My background combines technical operations, leadership, and hands-on development.
+              I support mission-critical systems with a focus on monitoring, diagnostics, smart-hands execution,
+              documentation, and operational stability. My background combines technical operations, leadership,
+              and hands-on development.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4">
-              <a
-                href="#contact"
-                className="rounded-2xl bg-white px-5 py-3 font-medium text-slate-950 transition hover:scale-[1.02]"
-              >
+              <a href="#contact" className="rounded-2xl bg-white px-5 py-3 font-medium text-slate-950 transition hover:scale-[1.02]">
                 Contact Me
               </a>
-              <a
-                href="#experience"
-                className="rounded-2xl border border-white/15 bg-white/5 px-5 py-3 font-medium text-white transition hover:bg-white/10"
-              >
-                View Experience
+              <a href="#projects" className="rounded-2xl border border-white/15 bg-white/5 px-5 py-3 font-medium text-white transition hover:bg-white/10">
+                View Projects
+              </a>
+              <a href="/resume.pdf" target="_blank" className="rounded-2xl border border-cyan-400/20 bg-cyan-400/10 px-5 py-3 font-medium text-cyan-100 transition hover:bg-cyan-400/15">
+                Download Resume
               </a>
             </div>
 
             <div className="mt-10 grid gap-4 sm:grid-cols-3">
-              {stats.map((item) => (
-                <div
+              {stats.map((item, index) => (
+                <motion.div
                   key={item.label}
+                  custom={index + 1}
+                  initial="hidden"
+                  animate="visible"
+                  variants={fadeUp}
                   className="rounded-2xl border border-white/10 bg-white/5 p-4 shadow-xl shadow-black/10 backdrop-blur"
                 >
                   <p className="text-sm text-slate-400">{item.label}</p>
                   <p className="mt-2 text-lg font-semibold text-white">{item.value}</p>
-                </div>
+                </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
 
-          <div className="relative">
+          <motion.div initial="hidden" animate="visible" custom={2} variants={fadeUp} className="relative">
             <div className="absolute -inset-4 rounded-[2.5rem] bg-gradient-to-br from-cyan-400/15 via-blue-500/10 to-purple-500/10 blur-2xl" />
             <div className="relative rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur-xl">
               <div className="rounded-[1.5rem] border border-white/10 bg-slate-900/80 p-6">
@@ -158,11 +208,11 @@ export default function PersonalWebsite() {
                   <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-slate-200">
                     438-979-0349
                   </div>
-                  <a
-                    href="https://www.linkedin.com/in/vaishal-dhir-049323113"
-                    className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-slate-200 transition hover:bg-white/10"
-                  >
+                  <a href="https://www.linkedin.com/in/vaishal-dhir-049323113" className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-slate-200 transition hover:bg-white/10">
                     LinkedIn Profile
+                  </a>
+                  <a href="https://github.com/" className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-slate-200 transition hover:bg-white/10">
+                    GitHub
                   </a>
                 </div>
 
@@ -172,57 +222,89 @@ export default function PersonalWebsite() {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       <section id="about" className="mx-auto max-w-6xl px-6 py-20">
         <div className="grid gap-10 md:grid-cols-[0.9fr_1.1fr]">
-          <div>
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.25 }} variants={fadeUp}>
             <p className="text-sm uppercase tracking-[0.3em] text-slate-400">About</p>
             <h3 className="mt-3 text-3xl font-semibold text-white md:text-4xl">
               Calm execution in high-pressure technical environments.
             </h3>
-          </div>
-          <div className="space-y-5 text-lg leading-8 text-slate-300">
+          </motion.div>
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.25 }} custom={1} variants={fadeUp} className="space-y-5 text-lg leading-8 text-slate-300">
             <p>
               I’m a Data Center Technician with experience supporting mission-critical environments, diagnosing issues,
               escalating incidents, and maintaining operational readiness across compute infrastructure.
             </p>
             <p>
-              My work is centered on reliable execution, clear communication, and practical problem solving. I enjoy systems,
-              operational discipline, and the kind of technical work where details matter.
+              I work best in roles that value reliability, attention to detail, fast learning, and strong ownership. I bring
+              a practical mindset to systems, operations, and technical support.
             </p>
-          </div>
+          </motion.div>
         </div>
 
-        <div className="mt-10 flex flex-wrap gap-3">
-          {skills.map((skill) => (
-            <span
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} className="mt-10 flex flex-wrap gap-3">
+          {skills.map((skill, index) => (
+            <motion.span
               key={skill}
+              custom={index * 0.3}
+              variants={fadeUp}
               className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-200 backdrop-blur"
             >
               {skill}
-            </span>
+            </motion.span>
           ))}
-        </div>
+        </motion.div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 py-6">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={fadeUp}
+          className="rounded-[1.75rem] border border-white/10 bg-white/5 p-6 shadow-xl shadow-black/10 backdrop-blur md:p-8"
+        >
+          <p className="text-sm uppercase tracking-[0.3em] text-slate-400">Why Recruiters Reach Out</p>
+          <h3 className="mt-3 text-3xl font-semibold text-white">Signal over noise</h3>
+          <div className="mt-6 grid gap-3 md:grid-cols-2">
+            {recruiterHighlights.map((item, index) => (
+              <motion.div
+                key={item}
+                custom={index}
+                variants={fadeUp}
+                className="rounded-2xl border border-white/10 bg-slate-900/70 px-4 py-4 text-slate-300"
+              >
+                {item}
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </section>
 
       <section id="experience" className="mx-auto max-w-6xl px-6 py-20">
         <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
-          <div>
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={fadeUp}>
             <p className="text-sm uppercase tracking-[0.3em] text-slate-400">Experience</p>
             <h3 className="mt-3 text-3xl font-semibold text-white md:text-4xl">Professional background</h3>
-          </div>
-          <p className="max-w-xl text-slate-400">
-            Roles that shaped my technical reliability, people skills, and operational judgment.
-          </p>
+          </motion.div>
+          <motion.p initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} custom={1} variants={fadeUp} className="max-w-xl text-slate-400">
+            Roles that built technical judgment, operational discipline, and the ability to stay effective under pressure.
+          </motion.p>
         </div>
 
         <div className="mt-10 grid gap-6">
-          {experience.map((item) => (
-            <div
+          {experience.map((item, index) => (
+            <motion.div
               key={item.role}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.15 }}
+              custom={index}
+              variants={fadeUp}
               className="rounded-[1.75rem] border border-white/10 bg-white/5 p-6 shadow-xl shadow-black/10 backdrop-blur md:p-8"
             >
               <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
@@ -232,6 +314,7 @@ export default function PersonalWebsite() {
                 </div>
                 <p className="text-sm text-slate-400">{item.period}</p>
               </div>
+              <p className="mt-4 max-w-3xl text-slate-300">{item.summary}</p>
               <div className="mt-6 grid gap-3">
                 {item.points.map((point) => (
                   <div key={point} className="rounded-2xl border border-white/10 bg-slate-900/70 px-4 py-3 text-slate-300">
@@ -239,41 +322,53 @@ export default function PersonalWebsite() {
                   </div>
                 ))}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>
 
       <section id="projects" className="mx-auto max-w-6xl px-6 py-20">
         <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
-          <div>
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={fadeUp}>
             <p className="text-sm uppercase tracking-[0.3em] text-slate-400">Projects</p>
-            <h3 className="mt-3 text-3xl font-semibold text-white md:text-4xl">Technical builds</h3>
-          </div>
-          <p className="max-w-xl text-slate-400">
-            Projects that reflect curiosity, practical implementation, and comfort with software and systems.
-          </p>
+            <h3 className="mt-3 text-3xl font-semibold text-white md:text-4xl">Work that shows technical range</h3>
+          </motion.div>
+          <motion.p initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} custom={1} variants={fadeUp} className="max-w-xl text-slate-400">
+            These projects highlight implementation skills, system thinking, and the ability to build practical solutions.
+          </motion.p>
         </div>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-2">
-          {projects.map((project) => (
-            <div
+        <div className="mt-10 grid gap-6 lg:grid-cols-3">
+          {projects.map((project, index) => (
+            <motion.div
               key={project.title}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              custom={index}
+              variants={fadeUp}
               className="group rounded-[1.75rem] border border-white/10 bg-white/5 p-6 shadow-xl shadow-black/10 transition hover:-translate-y-1 hover:bg-white/10"
             >
-              <div className="mb-6 flex h-44 items-end rounded-[1.25rem] border border-white/10 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-5">
-                <p className="text-sm uppercase tracking-[0.2em] text-cyan-300">{project.tag}</p>
+              <div className="mb-6 rounded-[1.25rem] border border-white/10 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-5">
+                <p className="text-sm uppercase tracking-[0.2em] text-cyan-300">{project.subtitle}</p>
+                <h4 className="mt-4 text-2xl font-semibold text-white">{project.title}</h4>
               </div>
-              <h4 className="text-2xl font-semibold text-white">{project.title}</h4>
-              <p className="mt-4 leading-7 text-slate-300">{project.description}</p>
-            </div>
+              <p className="leading-7 text-slate-300">{project.impact}</p>
+              <div className="mt-5 grid gap-3">
+                {project.bullets.map((bullet) => (
+                  <div key={bullet} className="rounded-2xl border border-white/10 bg-slate-900/70 px-4 py-3 text-sm leading-6 text-slate-300">
+                    {bullet}
+                  </div>
+                ))}
+              </div>
+            </motion.div>
           ))}
         </div>
       </section>
 
       <section className="mx-auto max-w-6xl px-6 py-20">
         <div className="grid gap-6 md:grid-cols-[1fr_1fr]">
-          <div className="rounded-[1.75rem] border border-white/10 bg-white/5 p-6 shadow-xl shadow-black/10 backdrop-blur md:p-8">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={fadeUp} className="rounded-[1.75rem] border border-white/10 bg-white/5 p-6 shadow-xl shadow-black/10 backdrop-blur md:p-8">
             <p className="text-sm uppercase tracking-[0.3em] text-slate-400">Certifications</p>
             <h3 className="mt-3 text-3xl font-semibold text-white">Continued learning</h3>
             <div className="mt-6 grid gap-3">
@@ -283,9 +378,9 @@ export default function PersonalWebsite() {
                 </div>
               ))}
             </div>
-          </div>
+          </motion.div>
 
-          <div className="rounded-[1.75rem] border border-white/10 bg-white/5 p-6 shadow-xl shadow-black/10 backdrop-blur md:p-8">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} custom={1} variants={fadeUp} className="rounded-[1.75rem] border border-white/10 bg-white/5 p-6 shadow-xl shadow-black/10 backdrop-blur md:p-8">
             <p className="text-sm uppercase tracking-[0.3em] text-slate-400">Education</p>
             <h3 className="mt-3 text-3xl font-semibold text-white">Academic background</h3>
             <div className="mt-6 space-y-4 text-slate-300">
@@ -298,12 +393,12 @@ export default function PersonalWebsite() {
                 <p className="text-slate-400">Electronics and Communications • Punjab, India</p>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       <section id="contact" className="mx-auto max-w-6xl px-6 pb-24 pt-10">
-        <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-white/10 to-white/5 p-8 shadow-2xl shadow-cyan-500/5 md:p-12">
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={fadeUp} className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-white/10 to-white/5 p-8 shadow-2xl shadow-cyan-500/5 md:p-12">
           <div className="absolute right-0 top-0 h-40 w-40 rounded-full bg-cyan-400/10 blur-3xl" />
           <div className="relative">
             <p className="text-sm uppercase tracking-[0.3em] text-slate-400">Contact</p>
@@ -316,15 +411,15 @@ export default function PersonalWebsite() {
               <a href="mailto:vaishaldhir4@gmail.com" className="rounded-2xl bg-white px-5 py-3 font-medium text-slate-950">
                 Email Me
               </a>
-              <a
-                href="https://www.linkedin.com/in/vaishal-dhir-049323113"
-                className="rounded-2xl border border-white/15 px-5 py-3 font-medium text-white"
-              >
+              <a href="https://www.linkedin.com/in/vaishal-dhir-049323113" className="rounded-2xl border border-white/15 px-5 py-3 font-medium text-white">
                 LinkedIn
+              </a>
+              <a href="https://github.com/" className="rounded-2xl border border-white/15 px-5 py-3 font-medium text-white">
+                GitHub
               </a>
             </div>
           </div>
-        </div>
+        </motion.div>
       </section>
     </div>
   );

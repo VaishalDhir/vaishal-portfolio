@@ -375,7 +375,7 @@ export default function PersonalWebsite() {
               <a href="https://www.linkedin.com/in/vaishal-dhir-049323113" className="rounded-2xl border border-white/15 px-5 py-3 font-medium text-white transition duration-300 hover:bg-white/10">
                 LinkedIn
               </a>
-              <a href="https://github.com/" className="rounded-2xl border border-white/15 px-5 py-3 font-medium text-white transition duration-300 hover:bg-white/10">
+              <a href="https://github.com/VaishalDhir" className="rounded-2xl border border-white/15 px-5 py-3 font-medium text-white transition duration-300 hover:bg-white/10">
                 GitHub
               </a>
             </div>
